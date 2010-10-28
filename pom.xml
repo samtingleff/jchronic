@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mdimension</groupId>
+    <artifactId>jchronic</artifactId>
+    <version>0.2.4-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <url>http://github.com/samtingleff/jchronic/</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>5</version>
+     </parent>
+    
+    <developers>
+        <developer>
+            <id>stingleff</id>
+            <name>Sam Tingleff</name>
+        </developer>
+    </developers>
+    
+    
+    <description>
+        Natural language date parsing in Java, ported directly from Ruby's 
+        chronic
+    </description>
+    
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <scm>
+        <connection>scm:git:git://github.com/samtingleff/jchronic.git</connection>
+        <developerConnection>scm:git:git@github.com:samtingleff/jchronic.git</developerConnection>
+        <url>http://github.com/samtingleff/jchronic/tree/master</url>
+    </scm>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
