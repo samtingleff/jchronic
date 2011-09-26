@@ -38,7 +38,7 @@ public class RepeaterDay extends RepeaterUnit {
     }
     else if (pointer == PointerType.NONE) {
       dayBegin = Time.ymd(getNow());
-      dayEnd = Time.cloneAndAdd(Time.ymdh(getNow()), Calendar.SECOND, RepeaterDay.DAY_SECONDS);
+      dayEnd = Time.cloneAndAdd(Time.ymdh(getNow()), Calendar.DAY_OF_MONTH, 1);
     }
     else {
       throw new IllegalArgumentException("Unable to handle pointer " + pointer + ".");
