@@ -66,7 +66,7 @@ public class RepeaterMonthName extends Repeater<RepeaterMonthName.MonthName> {
         if (nowMonth > targetMonth) {
           _currentMonthBegin = Time.y(getNow(), targetMonth);
         }
-        else if (nowMonth < targetMonth) {
+        else if (nowMonth <= targetMonth) {
           _currentMonthBegin = Time.cloneAndAdd(Time.y(getNow(), targetMonth), Calendar.YEAR, -1);
         }
       }
