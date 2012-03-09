@@ -3,8 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mdimension</groupId>
+    <groupId>com.rubiconproject.oss</groupId>
     <artifactId>jchronic</artifactId>
     <version>0.2.5-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -12,12 +18,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
-    <parent>
-        <groupId>com.rubiconproject.oss</groupId>
-        <artifactId>jchronic</artifactId>
-        <version>5</version>
-     </parent>
     
     <developers>
         <developer>
