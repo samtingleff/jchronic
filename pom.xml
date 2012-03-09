@@ -12,26 +12,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rubiconproject.oss</groupId>
     <artifactId>jchronic</artifactId>
-    <version>0.2.5-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <version>0.2.5-SNAPSHOT</version>
+    <name>chendra</name>
+    <description>Natural language date parsing in Java, ported directly from Ruby's chronic</description>
     <url>http://github.com/samtingleff/jchronic/</url>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    
-    <developers>
-        <developer>
-            <id>samtingleff</id>
-            <name>Sam Tingleff</name>
-        </developer>
-    </developers>
-    
-    
-    <description>
-        Natural language date parsing in Java, ported directly from Ruby's 
-        chronic
-    </description>
-    
     <licenses>
         <license>
             <name>MIT License</name>
@@ -39,13 +24,25 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
+    <developers>
+        <developer>
+            <id>samtingleff</id>
+            <name>Sam Tingleff</name>
+            <url>http://sam.tingleff.com/</url>
+            <organization>the Rubicon Project</organization>
+            <organizationUrl>http://www.rubiconproject.com/</organizationUrl>
+        </developer>
+    </developers>
     <scm>
-        <connection>scm:git:git://github.com/samtingleff/jchronic.git</connection>
+        <connection>scm:git:git@github.com:samtingleff/jchronic.git</connection>
         <developerConnection>scm:git:git@github.com:samtingleff/jchronic.git</developerConnection>
-        <url>http://github.com/samtingleff/jchronic/tree/master</url>
+        <url>http://github.com/samtingleff/jchronic</url>
     </scm>
-    
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
