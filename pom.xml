@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mdimension</groupId>
     <artifactId>jchronic</artifactId>
-    <version>0.2.4-SNAPSHOT</version>
+    <version>0.2.5-SNAPSHOT</version>
     <packaging>jar</packaging>
     <url>http://github.com/samtingleff/jchronic/</url>
     <properties>
@@ -14,7 +14,7 @@
     </properties>
     
     <parent>
-        <groupId>org.sonatype.oss</groupId>
+        <groupId>com.rubiconproject.oss</groupId>
         <artifactId>oss-parent</artifactId>
         <version>5</version>
      </parent>
