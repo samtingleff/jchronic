@@ -15,7 +15,7 @@
     
     <parent>
         <groupId>com.rubiconproject.oss</groupId>
-        <artifactId>oss-parent</artifactId>
+        <artifactId>jchronic</artifactId>
         <version>5</version>
      </parent>
     
