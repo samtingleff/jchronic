@@ -645,8 +645,11 @@ public class ParserTest extends TestCase {
 
   public void test_parse_guess_o_r_g_r() {
     Span time;
-    time = parse_now("3rd month next year");
-    assertEquals(Time.construct(2007, 3, 16, 12, 30), time);
+    time = parse_now("3rd month next year", new Options(false));
+    // Thu, 1 Mar 2007 08:00:00 +0000
+    assertEquals(time.getBegin(), 1172736000);
+    // Sun, 1 Apr 2007 07:00:00 +0000
+    assertEquals(time.getEnd(), 1175410800);
 
     time = parse_now("3rd thursday this september");
     assertEquals(Time.construct(2006, 9, 21, 12), time);
