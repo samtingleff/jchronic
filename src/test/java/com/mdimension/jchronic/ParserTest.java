@@ -120,7 +120,8 @@ public class ParserTest extends TestCase {
     time = parse_now("27/5/1979 @ 0700");
     assertEquals(Time.construct(1979, 5, 27, 7), time);
 
-    // sm_sy
+    // sm_sy with FUTURE pointer (the default).
+    // Year 06 == 2006; year 19 == 2019; year 20 == 2020; year 40 == 2040; year 99 == 1999.
 
     time = parse_now("05/06");
     assertEquals(Time.construct(2006, 5, 16, 12), time);
@@ -130,6 +131,56 @@ public class ParserTest extends TestCase {
 
     time = parse_now("13/06");
     assertEquals(null, time);
+
+    time = parse_now("12/19");
+    assertEquals(Time.construct(2019, 12, 16, 12), time);
+
+    time = parse_now("12/20");
+    assertEquals(Time.construct(2020, 12, 16, 12), time);
+
+    time = parse_now("12/40");
+    assertEquals(Time.construct(2040, 12, 16, 12), time);
+
+    time = parse_now("12/99");
+    assertEquals(Time.construct(1999, 12, 16, 12), time);
+
+    // sm_sy with NONE pointer
+    // Year 06 == 2006; year 19 == 2019; year 20 == 2020; year 40 == error; year 99 == 1999.
+
+    Options optionsPointerNone = new Options(Pointer.PointerType.NONE);
+    time = parse_now("12/06", optionsPointerNone);
+    assertEquals(Time.construct(2006, 12, 16, 12), time);
+
+    time = parse_now("12/19", optionsPointerNone);
+    assertEquals(Time.construct(2019, 12, 16, 12), time);
+
+    time = parse_now("12/20", optionsPointerNone);
+    assertEquals(Time.construct(2020, 12, 16, 12), time);
+
+    time = parse_now("12/40", optionsPointerNone);
+    assertEquals(null, time);
+
+    time = parse_now("12/99", optionsPointerNone);
+    assertEquals(Time.construct(1999, 12, 16, 12), time);
+
+    // sm_sy with PAST pointer
+    // Year 06 == 2006; year 19 == 2019; year 20 == 1920; year 40 == 1940; year 99 == 1999.
+
+    Options optionsPointerPast = new Options(Pointer.PointerType.PAST);
+    time = parse_now("12/06", optionsPointerPast);
+    assertEquals(Time.construct(2006, 12, 16, 12), time);
+
+    time = parse_now("12/19", optionsPointerPast);
+    assertEquals(Time.construct(2019, 12, 16, 12), time);
+
+    time = parse_now("12/20", optionsPointerPast);
+    assertEquals(Time.construct(1920, 12, 16, 12), time);
+
+    time = parse_now("12/40", optionsPointerPast);
+    assertEquals(Time.construct(1940, 12, 16, 12), time);
+
+    time = parse_now("12/99", optionsPointerPast);
+    assertEquals(Time.construct(1999, 12, 16, 12), time);
 
     // sy_sm_sd
 
@@ -170,10 +221,10 @@ public class ParserTest extends TestCase {
 
     // due to limitations of the Time class, these don't work
 
-    time = parse_now("may 40");
+    time = parse_now("may 40", optionsPointerNone);
     assertEquals(null, time);
 
-    time = parse_now("may 27 40");
+    time = parse_now("may 27 40", optionsPointerNone);
     assertEquals(null, time);
 
     time = parse_now("1800-08-20");
