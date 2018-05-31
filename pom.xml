@@ -10,7 +10,7 @@
     <groupId>com.rubiconproject.oss</groupId>
     <artifactId>jchronic</artifactId>
     <packaging>jar</packaging>
-    <version>0.2.7</version>
+    <version>0.2.8-SNAPSHOT</version>
     <name>jchronic</name>
     <description>Natural language date parsing in Java, ported directly from Ruby's chronic</description>
     <url>http://github.com/samtingleff/jchronic</url>
