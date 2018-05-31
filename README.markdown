@@ -38,5 +38,7 @@ Earlier versions of this library ignored the given options and always behaved li
 ## Credits ##
 This was originally written by Mike Schrag as part of the WONDER project.
 
+Additional contributions have since been made by @brianm, @ewanmellor, and @samtingleff.
+
 ## License ##
 The MIT license. See LICENSE.
