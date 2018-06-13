@@ -2,19 +2,23 @@ package com.mdimension.jchronic;
 
 import java.util.Calendar;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import com.mdimension.jchronic.tags.Pointer;
 import com.mdimension.jchronic.utils.Span;
 import com.mdimension.jchronic.utils.Time;
 
-public class ParserTest extends TestCase {
+@RunWith(JUnit4.class)
+public class ParserTest {
   public static final Calendar TIME_2006_08_16_14_00_00 = Time.construct(2006, 8, 16, 14, 0, 0, 0);
   private Calendar _time_2006_08_16_14_00_00;
 
-  @Override
-  protected void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() throws Exception {
     _time_2006_08_16_14_00_00 = TIME_2006_08_16_14_00_00;
   }
 
@@ -23,9 +27,10 @@ public class ParserTest extends TestCase {
   }
 
   protected void assertEquals(Calendar ec, Calendar ac) {
-    assertEquals((ec == null) ? null : ec.getTime(), (ac == null) ? null : ac.getTime());
+    Assert.assertEquals((ec == null) ? null : ec.getTime(), (ac == null) ? null : ac.getTime());
   }
 
+  @Test
   public void test_parse_guess_dates() {
     // rm_sd
 
@@ -231,10 +236,12 @@ public class ParserTest extends TestCase {
     assertEquals(null, time);
   }
 
+  @Test
   public void test_foo() {
     Chronic.parse("two months ago this friday");
   }
 
+  @Test
   public void test_parse_guess_r() {
     Span time;
     time = parse_now("friday");
@@ -262,6 +269,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 11, 16), time);
   }
 
+  @Test
   public void test_parse_guess_rr() {
     Span time;
     time = parse_now("friday 13:00");
@@ -304,6 +312,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 24, 12), time);
   }
 
+  @Test
   public void test_parse_guess_rrr() {
     Span time;
     time = parse_now("friday 1 pm");
@@ -322,6 +331,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 18, 19), time);
   }
 
+  @Test
   public void test_parse_guess_gr() {
     Span time;
     // year
@@ -443,6 +453,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 16, 13, 59, 59), time);
   }
 
+  @Test
   public void test_parse_guess_grr() {
     Span time;
     time = parse_now("yesterday at 4:00");
@@ -485,6 +496,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 16, 19), time);
   }
 
+  @Test
   public void test_parse_guess_grrr() {
     Span time;
     time = parse_now("today at 6:00pm");
@@ -512,6 +524,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 21, 12, 1), time);
   }
 
+  @Test
   public void test_parse_guess_rgr() {
     Span time;
     time = parse_now("afternoon yesterday");
@@ -521,6 +534,7 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 8, 12), time);
   }
 
+  @Test
   public void test_parse_guess_s_r_p() {
     Span time;
     // past
@@ -603,12 +617,14 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2007, 1, 7, 23, 30), time);
   }
 
+  @Test
   public void test_parse_guess_p_s_r() {
     Span time;
     time = parse_now("in 3 hours");
     assertEquals(Time.construct(2006, 8, 16, 17), time);
   }
 
+  @Test
   public void test_parse_guess_s_r_p_a() {
     Span time;
     // past
@@ -631,6 +647,7 @@ public class ParserTest extends TestCase {
     // future
   }
 
+  @Test
   public void test_parse_guess_o_r_s_r() {
     Span time;
     time = parse_now("3rd wednesday in november");
@@ -643,13 +660,14 @@ public class ParserTest extends TestCase {
     // assertEquals(Time.construct(2007, 1, 20, 12), time);
   }
 
+  @Test
   public void test_parse_guess_o_r_g_r() {
     Span time;
     time = parse_now("3rd month next year", new Options(false));
     // Thu, 1 Mar 2007 08:00:00 +0000
-    assertEquals(time.getBegin(), 1172736000);
+    Assert.assertEquals(time.getBegin(), 1172736000);
     // Sun, 1 Apr 2007 07:00:00 +0000
-    assertEquals(time.getEnd(), 1175410800);
+    Assert.assertEquals(time.getEnd(), 1175410800);
 
     time = parse_now("3rd thursday this september");
     assertEquals(Time.construct(2006, 9, 21, 12), time);
@@ -658,12 +676,14 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 9, 12), time);
   }
 
+  @Test
   public void test_parse_guess_nonsense() {
     Span time;
     time = parse_now("some stupid nonsense");
     assertEquals(null, time);
   }
 
+  @Test
   public void test_parse_span() {
     Span span;
     span = parse_now("friday", new Options(false));
@@ -680,12 +700,14 @@ public class ParserTest extends TestCase {
     assertEquals(Time.construct(2006, 8, 21), span.getEndCalendar());
   }
 
+  @Test
   public void test_parse_words() {
-    assertEquals(parse_now("33 days from now"), parse_now("thirty-three days from now"));
-    assertEquals(parse_now("2867532 seconds from now"), parse_now("two million eight hundred and sixty seven thousand five hundred and thirty two seconds from now"));
-    assertEquals(parse_now("may 10th"), parse_now("may tenth"));
+    Assert.assertEquals(parse_now("33 days from now"), parse_now("thirty-three days from now"));
+    Assert.assertEquals(parse_now("2867532 seconds from now"), parse_now("two million eight hundred and sixty seven thousand five hundred and thirty two seconds from now"));
+    Assert.assertEquals(parse_now("may 10th"), parse_now("may tenth"));
   }
 
+  @Test
   public void test_parse_only_complete_pointers() {
     assertEquals(_time_2006_08_16_14_00_00, parse_now("eat pasty buns today at 2pm"));
     assertEquals(_time_2006_08_16_14_00_00, parse_now("futuristically speaking today at 2pm"));

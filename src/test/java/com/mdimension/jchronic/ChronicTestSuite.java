@@ -1,30 +1,26 @@
 package com.mdimension.jchronic;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
+@RunWith(Suite.class)
+@SuiteClasses({
+	RepeaterMonthNameTest.class,
+	RepeaterYearTest.class,
+	RepeaterDayNameTest.class,
+	ParserTest.class,
+	RepeaterTimeTest.class,
+	TokenTestCase.class,
+	RepeaterMonthTest.class,
+	RepeaterWeekTest.class,
+	ChronicTestCase.class,
+	RepeaterHourTest.class,
+	RepeaterFortnightTest.class,
+	SpanTestCase.class,
+	HandlerTestCase.class,
+	RepeaterWeekendTest.class,
+	NumerizerTestCase.class
+})
 public class ChronicTestSuite {
-
-  public static Test suite() {
-    TestSuite suite = new TestSuite("Chronic");
-    //$JUnit-BEGIN$
-    suite.addTestSuite(RepeaterMonthNameTest.class);
-    suite.addTestSuite(RepeaterYearTest.class);
-    suite.addTestSuite(RepeaterDayNameTest.class);
-    suite.addTestSuite(ParserTest.class);
-    suite.addTestSuite(RepeaterTimeTest.class);
-    suite.addTestSuite(TokenTestCase.class);
-    suite.addTestSuite(RepeaterMonthTest.class);
-    suite.addTestSuite(RepeaterWeekTest.class);
-    suite.addTestSuite(ChronicTestCase.class);
-    suite.addTestSuite(RepeaterHourTest.class);
-    suite.addTestSuite(RepeaterFortnightTest.class);
-    suite.addTestSuite(SpanTestCase.class);
-    suite.addTestSuite(HandlerTestCase.class);
-    suite.addTestSuite(RepeaterWeekendTest.class);
-    suite.addTestSuite(NumerizerTestCase.class);
-    //$JUnit-END$
-    return suite;
-  }
-
 }

@@ -3,11 +3,17 @@ package com.mdimension.jchronic;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
 import com.mdimension.jchronic.numerizer.Numerizer;
 
-import junit.framework.TestCase;
+@RunWith(JUnit4.class)
+public class NumerizerTestCase {
 
-public class NumerizerTestCase extends TestCase {
+  @Test
   public void testStraightParsing() {
     Map<Integer, String> strings = new LinkedHashMap<Integer, String>();
     strings.put(Integer.valueOf(1), "one");
@@ -49,7 +55,7 @@ public class NumerizerTestCase extends TestCase {
 
     for (Integer value : strings.keySet()) {
       String str = strings.get(value);
-      assertEquals(value.intValue(), Integer.parseInt(Numerizer.numerize(str)));
+      Assert.assertEquals(value.intValue(), Integer.parseInt(Numerizer.numerize(str)));
     }
   }
 }
