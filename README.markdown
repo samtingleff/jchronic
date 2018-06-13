@@ -11,7 +11,7 @@ I've forked it out of [WONDER](http://sourceforge.net/projects/wonder/), "an umb
         <dependency>
             <groupId>com.rubiconproject.oss</groupId>
             <artifactId>jchronic</artifactId>
-            <version>0.2.7</version>
+            <version>0.2.8</version>
         </dependency>
     </dependencies>
 
